@@ -3,23 +3,25 @@ struct Node
 
     int data;
     struct Node *next;
+    // struct Node *prev;
 
 };
 struct LinkedList
 {
 
     struct Node *head;
-    struct Node *prev;
+    struct Node *tail;
     int cardinality;
 };
 
 struct LinkedList new_LL();
 void insert( struct LinkedList *, int );
 int removefromhead( struct LinkedList * );
+
 int removefromtail( struct LinkedList * );
 void append( struct LinkedList *, int );
-void cleanup( struct LinkedList * );
 
+void cleanup( struct LinkedList * );
 int isempty( struct LinkedList * );
 int retrieve( struct LinkedList *, int );
 int search( struct LinkedList *, int );
