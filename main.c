@@ -47,13 +47,17 @@ int removefromhead( struct LinkedList *LL )
 
 void append( struct LinkedList *LL, int data )
 {
+    struct Node *n = malloc( sizeof( struct Node ) );
+    n->data = data;
     
-    if( LL->head == NULL )
-        insert( LL, data );
-    else
+    if( LL->head != NULL ) /* if the list is not empty */
     {
+        LL->tail->next = n;
+        LL->tail = LL->tail->next;
+    }   
+    else /* the list is empty */
+        LL->head = LL->tail = n;
 
-    }
 }
 
 int pop( struct LinkedList *LL )
