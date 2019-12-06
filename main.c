@@ -17,18 +17,16 @@ void insert( struct LinkedList *LL, int data )
     
     struct Node *n = malloc( sizeof( struct Node ) );
     n->data = data;
-
-    if( LL->head == LL->tail )
-    {
-        if( LL->head == NULL ) /* if the list is empty */
-            LL->head = LL->tail = n;
-    }
-    else /* head and tail are different, the list is automatically not empty */
+    
+    if( LL->head != NULL )
     {
         n->next = LL->head;
         LL->head = n;
-    } 
-
+    }
+    else
+    {
+        LL->head = LL->tail = n;
+    }
     LL->cardinality++;
 }
 
@@ -50,9 +48,19 @@ int removefromhead( struct LinkedList *LL )
 void append( struct LinkedList *LL, int data )
 {
     
+    if( LL->head == NULL )
+        insert( LL, data );
+    else
+    {
 
-
+    }
 }
+
+int pop( struct LinkedList *LL )
+{
+    return 0;
+}
+
 
 int retrieve( struct LinkedList *LL, int index )
 {

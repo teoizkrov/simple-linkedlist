@@ -1,9 +1,7 @@
 struct Node
 {
-
     int data;
     struct Node *next;
-    // struct Node *prev;
 
 };
 struct LinkedList
@@ -18,7 +16,7 @@ struct LinkedList new_LL();
 void insert( struct LinkedList *, int );
 int removefromhead( struct LinkedList * );
 
-int removefromtail( struct LinkedList * );
+int pop( struct LinkedList * );
 void append( struct LinkedList *, int );
 
 void cleanup( struct LinkedList * );
