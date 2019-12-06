@@ -62,7 +62,24 @@ void append( struct LinkedList *LL, int data )
 
 int pop( struct LinkedList *LL )
 {
-    return 0;
+    if( LL->head == NULL )
+        exit( 1 );
+        
+    int temp;
+    if( LL->head == LL->tail )
+    {
+        temp = LL->head->data;
+        free( LL->head );
+        LL->tail = LL->head = NULL;
+        return temp;
+    }
+    else
+    {
+        struct Node *temp = LL->tail;
+        LL->tail = LL->tail->prev;
+        free( temp );
+    }
+        
 }
 
 
