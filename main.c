@@ -18,11 +18,11 @@ int main( int argc, char* argv[] )
 
     cleanup( &a );
     
-for( struct Node *p = a.head; p != NULL; p = p->next )
-    printf( "%d\n", p->data );
+    for( struct Node *p = a.head; p != NULL; p = p->next )
+        printf( "%d\n", p->data );
 
 
-printf( "%d\n", a.cardinality );
+    printf( "%d\n", a.cardinality );
 
     return 0;
 }
@@ -50,15 +50,18 @@ void insert( struct LinkedList *LL, int data )
     LL->cardinality++;
 }
 
-void removefromhead( struct LinkedList *LL )
+int removefromhead( struct LinkedList *LL )
 {
     if( LL->head != NULL )
     {
         struct Node *temp = LL->head;
         LL->head = LL->head->next;
+        int data = temp->data;
         free( temp );
         LL->cardinality--;
+        return data;
     }
+    exit( 1 );
     
 }
 

@@ -9,16 +9,20 @@ struct LinkedList
 {
 
     struct Node *head;
+    struct Node *prev;
     int cardinality;
 };
 
+struct LinkedList new_LL();
 void insert( struct LinkedList *, int );
-void removefromhead( struct LinkedList * );
+int removefromhead( struct LinkedList * );
+int removefromtail( struct LinkedList * );
+void append( struct LinkedList *, int );
+void cleanup( struct LinkedList * );
+
+int isempty( struct LinkedList * );
 int retrieve( struct LinkedList *, int );
 int search( struct LinkedList *, int );
-void cleanup( struct LinkedList * );
-struct LinkedList new_LL();
-int isempty( struct LinkedList * );
 
 
 /*
